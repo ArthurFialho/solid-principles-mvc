@@ -36,15 +36,15 @@ export class Product {
   }
 
   public get name() {
-    return this.props.id;
+    return this.props.name;
   }
 
   public get price() {
-    return this.props.id;
+    return this.props.price;
   }
 
   public get quantity() {
-    return this.props.id;
+    return this.props.quantity;
   }
 
   public buy(amount: number) {
