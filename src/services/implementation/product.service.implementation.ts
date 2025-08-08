@@ -9,7 +9,7 @@ import type {
 
 export class ProductServiceImplementation implements ProductService {
   constructor(readonly repository: ProductRepository) {}
-
+ 
   public static build(repository: ProductRepository) {
     return new ProductServiceImplementation(repository);
   }
