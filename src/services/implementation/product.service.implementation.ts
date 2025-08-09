@@ -5,13 +5,27 @@ import type {
   ListOutputDto,
   ProductService,
   SellOutputDto,
+  CreateOutputDto,
 } from "../product/product.service";
 
 export class ProductServiceImplementation implements ProductService {
   constructor(readonly repository: ProductRepository) {}
- 
+
   public static build(repository: ProductRepository) {
     return new ProductServiceImplementation(repository);
+  }
+
+  public async create(name: string, price: number): Promise<CreateOutputDto> {
+    const aProduct = Product.create(name, price);
+
+    await this.repository.save(aProduct);
+
+    const outPut: CreateOutputDto = {
+      id: aProduct.id,
+      balance: aProduct.quantity,
+    };
+
+    return outPut;
   }
 
   public async sell(id: string, amount: number): Promise<SellOutputDto> {

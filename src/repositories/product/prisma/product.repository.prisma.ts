@@ -5,7 +5,7 @@ import { PrismaClient } from "@prisma/client";
 export class ProductRepositoryPrisma implements ProductRepository {
   private constructor(readonly prisma: PrismaClient) {}
 
-  public build(prisma: PrismaClient) {
+  public static build(prisma: PrismaClient) {
     return new ProductRepositoryPrisma(prisma as any); // ❗️temporário, pois ProductServiceImplementation espera ProductRepository, não Prisma
   }
 

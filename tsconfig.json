@@ -5,6 +5,8 @@
     "module": "CommonJS",
     "target": "ES2022",
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "lib": ["ES2022"],
     "types": ["node"],
 
